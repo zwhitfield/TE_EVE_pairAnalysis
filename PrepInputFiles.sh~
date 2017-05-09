@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#Directory containing bed files to be analyzed. Include ending "/"
+WORKINGDIRECTORY="/home/zwhitfield/Desktop/ForMarkGenomePaper/FrozenData/Aag2_assembly"
+
+#Name of input bed files to analyze
+TEFILE="Aag2_Contigs_TEs.bed"
+EVEFILE="Aag_Contigs_EVEs_NEW.bed"
+
+#Name of initial output SORTED bedfiles
+TEFILESORTED="Aag2_Contigs_TEs_sorted.bed"
+EVEFILESORTED="Aag_Contigs_EVEs_NEW_sorted.bed"
+
+#Remove some unnecessary columns
+cut -f ${WORKINGDIRECTORY}/${TEFILE}
+
+
+#Sort bedfile (if necessary)
+bedtools sort -i ${WORKINGDIRECTORY}/${TEFILE}  > ${WORKINGDIRECTORY}/${TEFILESORTED}
+bedtools sort -i ${WORKINGDIRECTORY}/${EVEFILE}  > ${WORKINGDIRECTORY}/${EVEFILESORTED}
+
